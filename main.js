@@ -15,16 +15,17 @@ function showElementDetails(element) {
 }
 
 function getStarRank(count) {
-  return Math.floor(Math.min(count, 1000) / 200)
+  return Math.ceil(Math.min(count, 1000) / 200)
 }
 
 const colors = {
-  0: '#fff',
-  1: '#eee',
+  0: '#eee',
+  1: '#dcffcc',
   2: '#c6e48b',
   3: '#7bc96f',
   4: '#239a3b',
-  5: '#196127'
+  5: '#196127',
+  6: '#196127'
 }
 
 function addElementToTable(data, tableDiv) {
