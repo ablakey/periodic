@@ -69,6 +69,12 @@ body {
     text-align: center;
 }
 
+#madeby {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 8pt;
+}
+
 .table-element {
     margin: 2px;
     border: 1px solid black;
