@@ -5,13 +5,14 @@ body {
 #container {
     display: flex;
     flex-direction: column;
-    width: 1200px;
     margin: 0 auto;
 }
 
 #center {
     display: flex;
     flex-direction: row;
+    margin-top: 20px;
+    align-self: center;
 }
 
 #periodic-table {
@@ -29,10 +30,6 @@ body {
     border: 1px solid black;
     display: flex;
     flex-direction: column;
-}
-
-#element-card > div {
-    /* border: 1px solid black; */
 }
 
 #cardNumber {
@@ -56,13 +53,18 @@ body {
     text-align: center;
 }
 
-#madeby {
-    font-size: 12pt;
+#cardBlurb {
+    margin: 2px;
+    margin-top: 20px;
+    font-size: 10pt;
+}
+
+.middle {
+    text-align: center;
 }
 
 #title {
     font-size: 40px;
-    margin-bottom: 20px;
     text-align: center;
 }
 
