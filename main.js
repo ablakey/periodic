@@ -1,6 +1,10 @@
-function showElementDetails(e) {
+function onElementClick() {
   let number = this.getAttribute('data-number')
   let element = window.tableData[number - 1]
+  showElementDetails(element)
+}
+
+function showElementDetails(element) {
   let url = element.url.replace('https://api.github.com/repos/', 'http://github.com/')
   let urlLabel = url.replace('http://github.com/', '')
   document.querySelector('#cardNumber').innerHTML = element.number
@@ -11,7 +15,7 @@ function showElementDetails(e) {
 }
 
 function getStarRank(count) {
-  return Math.floor(Math.max(count, 1000) / 200)
+  return Math.floor(Math.min(count, 1000) / 200)
 }
 
 const colors = {
@@ -26,21 +30,22 @@ const colors = {
 function addElementToTable(data, tableDiv) {
   let elDiv = document.createElement('div')
   let symbol = document.createTextNode(data.symbol)
-
   let bgColor = colors[getStarRank(data.stars)]
 
   elDiv.appendChild(symbol)
   elDiv.setAttribute('class', 'table-element')
-  elDiv.setAttribute('style', `grid-column:${data.col}; grid-row:${data.row} background-color:${bgColor}`)
+  elDiv.setAttribute('style', `grid-column:${data.col}; grid-row:${data.row}; background-color:${bgColor}`)
   elDiv.setAttribute('data-number', data.number)
   tableDiv.appendChild(elDiv)
-  elDiv.addEventListener('click', showElementDetails)
+  elDiv.addEventListener('click', onElementClick)
 }
 
 window.onload = () => {
   let tableDiv = document.querySelector('#periodic-table')
 
   window.tableData.forEach((e) => {
-    addElementToTable({row: e.row, col: e.col, symbol: e.symbol, number: e.number}, tableDiv)
+    addElementToTable(e, tableDiv)
   })
+
+  showElementDetails(window.tableData[0])
 }
