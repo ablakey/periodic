@@ -1,13 +1,11 @@
-# The Periodic Table of Github
+# The Periodic Table of GitHub
 
 https://ablakey.github.io/periodic/index.html
 
-Implementation of a silly joke.  Ever notice that some things are difficult to name? Clearly, you're not alone.  Intentionally rough quality VanillaJS to practice quick prototyping.
+Ever notice that some things are difficult to name? You're not alone.
 
+Apologies to mobile and small screen users, this page does not scale well.
 
 ## How To Generate Data
-1. Run `github_search.py`
-2. Rename `github_element_data.json` to `data.js`
-3. append a global variable name to the start of `data.js` so that it looks like `tableData = [...]`
-
-Data last updated: November 3, 2017
+1. Run `python3 build_element_data.py`
+2. Wait about 15 mins (rate limiting in effect on GitHub API)

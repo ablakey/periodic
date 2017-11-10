@@ -10,7 +10,7 @@ function showElementDetails(element) {
   document.querySelector('#cardNumber').innerHTML = element.number
   document.querySelector('#cardSymbol').innerHTML = element.symbol
   document.querySelector('#cardLink').innerHTML = `<a href="${url}">github.com/${urlLabel}</a>`
-  document.querySelector('#cardStars').innerHTML = `★ ${element.stars}`
+  document.querySelector('#cardStars').innerHTML = `★ ${element.stargazers_count}`
   document.querySelector('#cardBlurb').innerHTML = element.description
 }
 
@@ -31,7 +31,7 @@ const colors = {
 function addElementToTable(data, tableDiv) {
   let elDiv = document.createElement('div')
   let symbol = document.createTextNode(data.symbol)
-  let bgColor = colors[getStarRank(data.stars)]
+  let bgColor = colors[getStarRank(data.stargazers_count)]
 
   elDiv.appendChild(symbol)
   elDiv.setAttribute('class', 'table-element')
