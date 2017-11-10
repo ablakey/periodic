@@ -27,6 +27,7 @@ if __name__ == '__main__':
         for page_metadata in r.json()['items']:
             if page_metadata['name'].lower() == element['name'].lower():
                 result = page_metadata
+                break
 
         # Format data, including only a few fields from what Github returned us.
         formatted_result = {
@@ -35,7 +36,7 @@ if __name__ == '__main__':
         }
 
         formatted_results.append(formatted_result)
-        time.sleep(7)  # Don't request too fast or we'll get throttled.
+        time.sleep(6)  # Don't request too fast or we'll get throttled.
 
     # JSONify the output data, then prepend a global variable name (because we use data.js as a JS object)
     output = 'tableData = ' + json.dumps(formatted_results, ensure_ascii=False, indent=4)
